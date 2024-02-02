@@ -1,30 +1,21 @@
-# Swapping two numbers with a temporary variable using if-else
-def swap_with_temp_if_else(a, b):
-    temp = a
-    a = b
-    b = temp
-    return a, b
+print (">>>>>>>>""Withe using temp variable""<<<<<<<<<<")
+a =int(input("Enter the value of a :"))
+b = int(input("Enter the value of b :"))
+temp = None
 
-# Example usage
-num1 = int(input("Enter the 1st number :"))
-num2 = int(input("Enter the 2st number :"))
+temp = a
+a = b
+b = temp
 
-# Swapping with temp variable using if-else
-num1, num2 = swap_with_temp_if_else(num1, num2)
-print("After swapping with temp variable using if-else:", num1, num2)
+print("After the swaping value of a :",a)
+print("After the swaping value of b :",b)
 
-# Swapping two numbers without a temporary variable using if-else
-def swap_without_temp_if_else(a, b):
-    if a != b:
-        a = a + b
-        b = a - b
-        a = a - b
-    return a, b
+print (">>>>>>>>""Witheout using temp variable""<<<<<<<<<<")
 
-# Resetting values for swapping without temp variable using if-else
-num1 = 5
-num2 = 10
+a =int(input("Enter the value of a :"))
+b = int(input("Enter the value of b :"))
 
-# Swapping without temp variable using if-else
-num1, num2 = swap_without_temp_if_else(num1, num2)
-print("After swapping without temp variable using if-else:", num1, num2)
+a,b = b,a
+
+print("After the swaping value of a :",a)
+print("After the swaping value of b :",b)
