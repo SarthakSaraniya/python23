@@ -1,3 +1,5 @@
+# class 
+
 class myclass :
     
     def myfun1(self):
