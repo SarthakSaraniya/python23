@@ -1,4 +1,4 @@
-##function without parameters and without arguments
+#function without parameters and without arguments
 
 def myfun():
     n = int(input("Enter number : "))

@@ -1,4 +1,4 @@
-# single inheritence 
+# single Inheritance 
 
 class parent :
     
