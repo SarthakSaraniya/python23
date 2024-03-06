@@ -3,7 +3,7 @@
 import random
 
 def read_random_line():
-    file = open("C:\\Users\\sarthak saraniya\\Desktop\\python\\python23\\Classwork\\Date16 Feb\\File management\\test.txt","r")
+    file = open("C:\\Users\\sarthak saraniya\\Desktop\\python\\python23\\Assignment\\Module-3 (collection,Functions ,Module)\\test.txt")
     print(file.readlines())
     
     file.close
