@@ -4,6 +4,7 @@ class grendparent :
     
     def fac(self):
         
+        print("--- Factorial ---")
         n = int(input("Enter the number : "))
         fac = 1 
         
@@ -16,19 +17,22 @@ class grendparent :
 class parent(grendparent) :
     
     def list(self) :
+        
+        print("--- Reverse String ---")
         my_list = [1, 2, 3, 4, 5]
         my_list.reverse()
-        print(my_list)
+        print("Reverse string : ",my_list)
         
     def middle_string(self) :
         
+        print("--- Middle Value of String ---")
         s = input("Enter the string : ")
         
         middle_index = len(s) // 2
         
         if len(s) % 2 == 1 :
             middle_string = s[middle_index]
-            print("niddle value : ",middle_string)
+            print("Middle value : ",middle_string)
             
         else :
             middle_strings = [s[middle_index - 1], s[middle_index]]
@@ -38,6 +42,7 @@ class child(parent) :
     
     def prime(self) :
         
+        print("--- Prime Number ---")
         n = int(input("Enter the number : "))
         
         if n > 1:        
@@ -51,8 +56,7 @@ class child(parent) :
                     break
     
         else:
-             print(n, "Enter velid number !!")
-        
+             print(n, "Enter velid number !!")        
                 
 obj = child()
 obj.fac()
