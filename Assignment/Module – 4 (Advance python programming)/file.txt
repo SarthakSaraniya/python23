@@ -1,11 +1,4 @@
-Exception handling is a mechanism in Python that allows you to handle errors and unexpected behavior that may occur during the execution of a program. 
-This is the appended text.
-This is the appended text.
-dsafdfd
-dfafadf
-fadfadfad
-fafadfadf
-safeafweg
-sfgfsdhdfhdfb
-safsagtayfjfg
-This is the appended text.
+apple
+banana
+cherry
+date
