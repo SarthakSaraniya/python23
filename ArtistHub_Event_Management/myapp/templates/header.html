@@ -64,7 +64,10 @@ https://www.tooplate.com/view/2125-artxibition
                             <li><a href="{% url 'shows-events' %}">Shows & Events</a></li> 
                             <li><a href="{% url 'tickets' %}">Tickets</a></li>
                             {% if request.session.email %}
-                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                                <li><a href="{% url 'change-password' %}">Change Password
+                                </a></li>
+                                <li><a href="{% url 'logout' %}">Logout
+                                </a></li>
                             {% else %}
                                 <li><a href="{% url 'signup' %}">Signup</a></li>
                                 <li><a href="{% url 'login' %}">Login</a></li>

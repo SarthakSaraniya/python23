@@ -71,3 +71,24 @@ def logout(request):
 	except:
 		msg = "Logout Successfilly"
 		return render(request,'login.html',{'msg': msg})
+
+def change_password(request):
+	if request.method == 'POST':
+		user = User.objects.get(email=request.session['email'])
+		if user.password == request.POST['old_password']:
+			if request.POST['new_password']==request.POST['cnew_password']:
+					user.password=request.POST['new_password']
+					user.save()
+					msg = "Password changed Successfilly. Please login Again."
+					del request.session['email']
+					del request.session['fname']
+					return render(request,'login.html',{'msg':msg})
+			else :
+				msg = "New Password & Confirm Password Dose not Matched"
+				return render(request,'change-password.html',{'msg':msg})
+
+		else :
+			msg = "Old Password Dose not Matched"
+			return render(request,'change-password.html',{'msg':msg})
+	else:
+		return render(request,'change-password.html')
