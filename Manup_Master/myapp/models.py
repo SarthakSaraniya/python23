@@ -10,6 +10,19 @@ class User(models.Model):
 	address = models.TextField()
 	password = models.CharField(max_length=100)
 	profile_picture=models.ImageField(upload_to="profile_picture/",default="")
+	usertype = models.CharField(max_length=100,default="user")
 
 	def __str__(self):
 		return self.fname+" "+self.lname
+
+class Event(models.Model):
+	manager=models.ForeignKey(User,on_delete=models.CASCADE)
+	event_name=models.CharField(max_length=100)
+	event_date=models.CharField(max_length=100)
+	event_time=models.CharField(max_length=100)
+	event_venue=models.TextField()
+	event_picture=models.ImageField(upload_to="event_picture/")
+	event_price=models.PositiveIntegerField()
+
+	def __str__(self):
+		return self.manager.fname+" - "+self.event_name

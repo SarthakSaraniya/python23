@@ -16,4 +16,6 @@ urlpatterns = [
     path('verify-otp/',views.verify_otp,name='verify-otp'),
     path('new-password/',views.new_password,name='new-password'),
     path('profile/',views.profile,name='profile'),
+    path('manager-add-event/',views.manager_add_event,name='manager-add-event'),
+    path('manager-view-event/',views.manager_view_event,name='manager-view-event'),
 ]

@@ -1,0 +1,78 @@
+{% extends 'manager-header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    
+</head>
+
+<body>
+
+    <!-- Contact Form Section Begin -->
+    <section class="contact-from-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Add Events</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% if msg %}
+                    <b style="color: blue;">{{msg}}</b>
+                {% endif %}
+                <div class="col-lg-12">
+                    <form action="{% url 'manager-add-event' %}" method="post" class="comment-form contact-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="row">
+                             <div class="col-lg-12">
+                              <fieldset>
+                                <input name="event_name" type="text" id="name" placeholder="Your Event Name*" required="">
+                              </fieldset>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="event_date" type="date" id="name" required="">
+                              </fieldset>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="event-time" type="time" id="email" required="">
+                              </fieldset>
+                            </div>
+                            
+                            <div class="col-lg-12">
+                              <fieldset>
+                                <textarea name="event_venue" rows="6" id="about-event-hosting" placeholder="Event Venue Address*" required=""></textarea>
+                              </fieldset>
+                            </div>
+                            
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="event_picture" type="file" id="phone-number">
+                              </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                              <fieldset>
+                                <input name="event_price" type="text" id="name" placeholder="Your Event Price*" required="">
+                              </fieldset>
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <button type="submit" class="site-btn">Add Event</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Form Section End -->
+
+</body>
+
+</html>
+{% endblock %}

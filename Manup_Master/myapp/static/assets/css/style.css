@@ -1971,7 +1971,7 @@ ol {
 	font-weight: 600;
 }
 
-.comment-form input {
+.comment-form input{
 	width: 100%;
 	height: 46px;
 	background: #f4f6f8;
@@ -2011,7 +2011,7 @@ ol {
 	color: #171822;
 }
 
-.comment-form textarea {
+.comment-form textarea{
 	width: 100%;
 	height: 120px;
 	background: #f4f6f8;
