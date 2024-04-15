@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import User
+from .models import User,Event
 import requests
 import random
 
@@ -184,3 +184,6 @@ def profile(request):
 			return render(request,'profile.html',{'user':user})
 		else:
 			return render(request,'manager-profile.html',{'user':user})
+
+def manager_add_event(request):
+	return render(request,'manager-add-event.html')
