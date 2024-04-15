@@ -10,6 +10,7 @@ class User(models.Model):
 	address = models.TextField()
 	password = models.CharField(max_length=100)
 	profile_picture=models.ImageField(upload_to="profile_picture/",default="")
+	usertype = models.CharField(max_length=100,default="user")
 
 	def __str__(self):
 		return self.fname+" "+self.lname

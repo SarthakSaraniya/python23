@@ -6,7 +6,14 @@ import random
 # Create your views here.
 
 def index(request):
-	return render(request,'index.html')
+	try:
+		user=User.objects.get(email=request.session['email'])
+		if user.usertype=="user":
+			return render(request,'index.html')
+		else:
+			return render(request,'manager-index.html')
+	except:
+		return render(request,'index.html')
 
 def about(request):
 	return render(request,'about.html')
@@ -36,7 +43,8 @@ def signup(request):
 						mobile=request.POST['mobile'],
 						address=request.POST['address'],
 						password=request.POST['password'],
-						profile_picture=request.FILES['profile_picture']
+						profile_picture=request.FILES['profile_picture'],
+						usertype=request.POST['usertype']
 					)
 				msg = "User Sign Up Successfully"
 				return render(request,'login.html',{'msg': msg})
@@ -54,7 +62,10 @@ def login(request):
 				request.session['email'] = user.email
 				request.session['fname'] = user.fname
 				request.session['profile_picture'] = user.profile_picture.url
-				return render(request,'index.html')
+				if user.usertype == 'user':
+					return render(request,'index.html')
+				else:
+					return render(request,'manager-index.html')
 			else :
 				msg="Incorrect Password"
 				return render(request,'login.html',{'msg':msg})
@@ -77,8 +88,8 @@ def logout(request):
 		return render(request,'login.html',{'msg': msg})
 
 def change_password(request):
-	if request.method == 'POST':
-		user = User.objects.get(email=request.session['email'])
+	user = User.objects.get(email=request.session['email'])
+	if request.method == 'POST':		
 		if user.password == request.POST['old_password']:
 			if request.POST['new_password']==request.POST['cnew_password']:
 					user.password=request.POST['new_password']
@@ -89,13 +100,21 @@ def change_password(request):
 					return render(request,'login.html',{'msg':msg})
 			else :
 				msg = "New Password & Confirm Password Dose not Matched"
-				return render(request,'change-password.html',{'msg':msg})
-
+				if user.usertype=="user":
+					return render(request,'change-password.html',{'msg':msg})
+				else:
+					return render(request,'manager-change-password.html',{'msg':msg})
 		else :
 			msg = "Old Password Dose not Matched"
-			return render(request,'change-password.html',{'msg':msg})
+			if user.usertype=="user":
+				return render(request,'change-password.html',{'msg':msg})
+			else:
+				return render(request,'manager-change-password.html',{'msg':msg})
 	else:
-		return render(request,'change-password.html')
+		if user.usertype == "user":
+			return render(request,'change-password.html')
+		else:
+			return render(request,'manager-change-password.html')
 
 def forgot_password(request):
 	if request.method=="POST":
@@ -156,6 +175,12 @@ def profile(request):
 		user.save()
 		request.session['profile_picture']=user.profile_picture.url
 		msg="Profile Updated Successfilly"
-		return render(request,'profile.html',{'user':user,'msg':msg})
+		if user.usertype=="user":
+			return render(request,'profile.html',{'user':user,'msg':msg})
+		else:
+			return render(request,'manager-profile.html',{'user':user})
 	else:
-		return render(request,'profile.html',{'user':user})
+		if user.usertype=="user":
+			return render(request,'profile.html',{'user':user})
+		else:
+			return render(request,'manager-profile.html',{'user':user})

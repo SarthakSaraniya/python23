@@ -1500,7 +1500,7 @@ Rent Venue Page
 }
 
 .rent-venue-application .contact-form input,
-.rent-venue-application .contact-form textarea {
+.rent-venue-application .contact-form textarea,select{
   color: #7a7a7a;
   font-size: 13px;
   border: 1px solid #ddd;
