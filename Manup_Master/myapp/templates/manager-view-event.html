@@ -1,0 +1,68 @@
+{% extends 'manager-header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+</head>
+
+<body>
+    
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2>My Shows & Events</h2>
+                        <div class="bt-option">
+                            <a href="#">Home</a>
+                            <span>Our Show & Event</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Blog Section Begin -->
+    <section class="blog-section spad">
+        <div class="container">
+            <div class="row">
+                {% for i in events %}
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            
+                            <div class="blog-item set-bg" data-setbg="{{i.event_picture.url}}">
+                                <div class="bi-text">
+                                    <h5><a href="./blog-details.html">{{i.event_name}}</a></h5>
+                                    <span>{{i.event_date}}</span><span>{{i.event_time}}</span>
+                                    <span>1000 Total Guests Attending</span>
+                                    <span>Venue : {{i.event_venue}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-dark-button">
+                                <a href="{% url 'manager-edit-event' pk=i.pk %}">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="{% url 'manager-delete-event' pk=i.pk %}">Delete</a>
+                                <br><br>
+                                <b>Price : {{i.event_price}}</b>
+                                <br><br>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section End -->
+
+</body>
+
+</html>
+{% endblock %}

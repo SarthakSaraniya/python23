@@ -18,4 +18,6 @@ urlpatterns = [
     path('profile/',views.profile,name='profile'),
     path('manager-add-event/',views.manager_add_event,name='manager-add-event'),
     path('manager-view-event/',views.manager_view_event,name='manager-view-event'),
+    path('manager-edit-event/<int:pk>/',views.manager_edit_event,name='manager-edit-event'),
+    path('manager-delete-event/<int:pk>/',views.manager_delete_event,name='manager-delete-event'),
 ]

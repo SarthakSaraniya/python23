@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import User,Event
 import requests
 import random
@@ -188,7 +188,46 @@ def profile(request):
 			return render(request,'manager-profile.html',{'user':user})
 
 def manager_add_event(request):
-	return render(request,'manager_add_event.html')
+	if request.method=="POST":
+		manager=User.objects.get(email=request.session['email'])
+		Event.objects.create(
+				manager=manager,
+				event_name=request.POST['event_name'],
+				event_date=request.POST['event_date'],
+				event_time=request.POST['event_time'],
+				event_venue=request.POST['event_venue'],
+				event_picture=request.FILES['event_picture'],
+				event_price=request.POST['event_price'],
+			)
+		msg="Event Add Successfilly"
+		return render(request,'manager-add-event.html',{'msg':msg})
+	else:
+		return render(request,'manager-add-event.html')
 
 def manager_view_event(request):
-	return render(request,'manager_view_event.html')
+	manager=User.objects.get(email=request.session['email'])
+	events=Event.objects.filter(manager=manager)
+	return render(request,'manager-view-event.html',{'events':events})
+
+def manager_edit_event(request,pk):
+	event=Event.objects.get(pk=pk)
+	if request.method=="POST":
+		event.event_name=request.POST['event_name']
+		event.event_date=request.POST['event_date']
+		event.event_time=request.POST['event_time']
+		event.event_venue=request.POST['event_venue']
+		event.event_price=request.POST['event_price']
+		try:
+			event.event_picture=request.FILES['event_picture']
+		except:
+			pass
+		event.save()
+		msg="Event Updated Successfilly"
+		return render(request,'manager-edit-event.html',{'event':event , 'msg':msg})
+	else:
+		return render(request,'manager-edit-event.html',{'event':event})
+
+def manager_delete_event(request,pk):
+	event=Event.objects.get(pk=pk)
+	event.delete()
+	return redirect('manager-view-event')
