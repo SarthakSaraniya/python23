@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-__n*oi9kwj=ubcs2cgt-3r3c8&@84ex01e4fa8w-5dwng-cc)0'
+SECRET_KEY = 'django-insecure-qgj&u&f)+&2sdlfv2le-5lz=wq7kbd3m-3ani5f(!at_+)3m@s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -124,5 +123,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+STRIPE_PUBLIC_KEY='pk_test_51P7GPXSIzSHrIcptUmW0RL2UG7hIVqOqOyq4uHdJX3peE1fgdIQ7RmREpQdWn5HBtDSSwxC1DVN07Ten1f4J0KM700Ue3X6U25'
+STRIPE_PRIVATE_KEY='sk_test_51P7GPXSIzSHrIcptMzEQ5y8iKbpt0ge2EXB9vxyFmvvLO9uFeVncJN1M0JZkrkdoVdKUEuLrejGTINOhGk5fGmiE00VvlQV0fq'

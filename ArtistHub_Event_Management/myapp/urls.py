@@ -22,4 +22,8 @@ urlpatterns = [
     path('event-details/<int:pk>/',views.event_details,name='event-details'),
     path('book-event/<int:pk>/',views.book_event,name='book-event'),
     path('myevents/',views.myevents,name='myevents'),
+    path('payment/<int:pk>/',views.payment,name='payment'),
+    path('create-checkout-session/', views.create_checkout_session, name='payment'),
+    path('success.html/', views.success,name='success'),
+    path('cancel.html/', views.cancel,name='cancel'),
 ]
