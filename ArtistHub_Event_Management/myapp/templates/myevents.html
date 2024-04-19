@@ -94,20 +94,20 @@
                                                         <div class="row">
                                                             <div class="col-lg-4">
                                                                 <div class="left-content">
-                                                                    <h4>{{i.event_name}}</h4>
+                                                                    <h4>{{i.event.event_name}}</h4>
                                                                     
                                                                     <div class="main-dark-button">
-                                                                        {% if request.session.email %}
-                                                                            <a href="{% url 'event-details' pk=i.pk %}">Details</a>
+                                                                        {% if i.payment_status == False %}
+                                                                            <a href="">Proceed For Payment</a>
                                                                         {% else %}
-                                                                            <a href="{% url 'login' %}">Login</a>
+                                                                            <a href="" disabled>Already Book</a>
                                                                         {% endif %}
                                                                      </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-4">
                                                                 <div class="thumb">
-                                                                    <img src="{{i.event_picture.url}}" alt="" style="height:250px;width: 250px;">
+                                                                    <img src="{{i.event.event_picture.url}}" alt="" style="height:250px;width: 250px;">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-4">
@@ -115,11 +115,11 @@
                                                                     <ul>
                                                                         <li>
                                                                             <i class="fa fa-clock-o"></i>
-                                                                            <h6>{{i.event_date}}<br>{{i.event_time}}</h6>
+                                                                            <h6>{{i.event.event_date}}<br>{{i.event.event_time}}</h6>
                                                                         </li>
                                                                         <li>
                                                                             <i class="fa fa-map-marker"></i>
-                                                                            <span>{{i.event_venue}}</span>
+                                                                            <span>{{i.event.event_venue}}</span>
                                                                         </li>
                                                                         <li>
                                                                             <i class="fa fa-users"></i>

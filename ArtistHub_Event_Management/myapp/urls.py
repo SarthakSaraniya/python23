@@ -19,4 +19,7 @@ urlpatterns = [
     path('manager-view-event/',views.manager_view_event,name='manager-view-event'),
     path('manager-edit-event/<int:pk>/',views.manager_edit_event,name='manager-edit-event'),
     path('manager-delete-event/<int:pk>/',views.manager_delete_event,name='manager-delete-event'),
+    path('event-details/<int:pk>/',views.event_details,name='event-details'),
+    path('book-event/<int:pk>/',views.book_event,name='book-event'),
+    path('myevents/',views.myevents,name='myevents'),
 ]
