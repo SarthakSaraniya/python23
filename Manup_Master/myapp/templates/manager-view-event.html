@@ -46,9 +46,10 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="main-dark-button">
-                                <a href="{% url 'manager-edit-event' pk=i.pk %}">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="{% url 'manager-delete-event' pk=i.pk %}">Delete</a>
+                                <a class="site-btn" href="{% url 'manager-edit-event' pk=i.pk %}">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a class="site-btn" href="{% url 'manager-delete-event' pk=i.pk %}">Delete</a>
                                 <br><br>
                                 <b>Price : {{i.event_price}}</b>
                                 <br><br>
