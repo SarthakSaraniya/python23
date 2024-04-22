@@ -26,3 +26,14 @@ class Event(models.Model):
 
 	def __str__(self):
 		return self.manager.fname+" - "+self.event_name
+
+class BookEvent(models.Model):
+	user=models.ForeignKey(User,on_delete=models.CASCADE)
+	event=models.ForeignKey(Event,on_delete=models.CASCADE)
+	event_price=models.PositiveIntegerField()
+	ticket_qty=models.PositiveIntegerField()
+	total_price=models.PositiveIntegerField(default=0)
+	payment_status=models.BooleanField(default=False)
+
+	def __str__(self):
+		return self.user.fname+" - "+self.event.event_name

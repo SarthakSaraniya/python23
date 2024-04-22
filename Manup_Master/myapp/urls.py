@@ -5,7 +5,7 @@ urlpatterns = [
     path('',views.index,name='index'),
     path('about/',views.about,name='about'),
     path('speaker/',views.speaker,name='speaker'),
-    path('schedule/',views.schedule,name='schedule'),
+    path('shows-events/',views.shows_events,name='shows-events'),
     path('blog/',views.blog,name='blog'),
     path('contact/',views.contact,name='contact'),
     path('signup/',views.signup,name='signup'),
@@ -20,4 +20,7 @@ urlpatterns = [
     path('manager-view-event/',views.manager_view_event,name='manager-view-event'),
     path('manager-edit-event/<int:pk>/',views.manager_edit_event,name='manager-edit-event'),
     path('manager-delete-event/<int:pk>/',views.manager_delete_event,name='manager-delete-event'),
+    path('event-details/<int:pk>/',views.event_details,name='event-details'),
+    path('book-event/<int:pk>/',views.book_event,name='book-event'),
+    path('myevents/',views.myevents,name='myevents'),
 ]

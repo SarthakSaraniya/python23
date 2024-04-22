@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import User,Event
+from .models import User,Event,BookEvent
 import requests
 import random
 
@@ -21,8 +21,9 @@ def about(request):
 def speaker(request):
 	return render(request,'speaker.html')
 
-def schedule(request):
-	return render(request,'schedule.html')
+def shows_events(request):
+	events=Event.objects.all()
+	return render(request,'shows-events.html',{'events':events})
 
 def blog(request):
 	return render(request,'blog.html')
@@ -231,3 +232,29 @@ def manager_delete_event(request,pk):
 	event=Event.objects.get(pk=pk)
 	event.delete()
 	return redirect('manager-view-event')
+
+def event_details(request,pk):
+	event=Event.objects.get(pk=pk)
+	return render(request,'event-details.html',{'event':event})
+
+def book_event(request,pk):
+	event=Event.objects.get(pk=pk)
+	user=User.objects.get(email=request.session['email'])
+	if request.method=="POST":
+		BookEvent.objects.create(
+				user=user,
+				event=event,
+				event_price=event.event_price,
+				ticket_qty=int(request.POST['ticket_qty']),
+				total_price=event.event_price*int(request.POST['ticket_qty']),
+			)
+		msg="Event Booked Successfully"
+		events=BookEvent.objects.filter(user=user)
+		return render(request,'myevents.html',{'events':events,'msg':msg})
+	else:
+		return render(request,'book-event.html',{'event':event,'user':user})
+
+def myevents(request):
+	user=User.objects.get(email=request.session['email'])
+	events=BookEvent.objects.filter(user=user)
+	return render(request,'myevents.html',{'events':events})

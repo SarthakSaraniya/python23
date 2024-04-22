@@ -46,18 +46,11 @@
                     <ul>
                         
                         <li><a href="{% url 'about' %}">About</a></li>
-                        <li><a href="{% url 'speaker' %}">Speakers</a>
-                            <ul class="dropdown">
-                                <li><a href="#">Jayden</a></li>
-                                <li><a href="#">Sara</a></li>
-                                <li><a href="#">Emma</a></li>
-                                <li><a href="#">Harriet</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{% url 'schedule' %}">Schedule</a></li>
-                        <li><a href="{% url 'blog' %}">Blog</a></li>
+                        <li><a href="{% url 'shows-events' %}">Shows & Events</a></li>
+                        
                         <li><a href="{% url 'contact' %}">Contacts</a></li>
                         {% if request.session.email %}
+                            <li><a href="{% url 'myevents' %}">My Booking</a></li>
                             <li><a href="{% url 'change-password' %}">Change Password</a></li>
                             <li><a href="{% url 'logout' %}">Logout</a></li>
                              <li><a href="{% url 'profile'%}"><img src="{{request.session.profile_picture}}" style="width:30px;height: 30px;"></a></li>
