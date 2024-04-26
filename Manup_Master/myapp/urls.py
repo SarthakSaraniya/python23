@@ -23,4 +23,5 @@ urlpatterns = [
     path('event-details/<int:pk>/',views.event_details,name='event-details'),
     path('book-event/<int:pk>/',views.book_event,name='book-event'),
     path('myevents/',views.myevents,name='myevents'),
+    path('payment/<int:pk>/',views.payment,name='payment'),
 ]
