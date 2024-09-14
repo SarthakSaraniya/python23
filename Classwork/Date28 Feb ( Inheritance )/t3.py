@@ -13,7 +13,7 @@ class grendparent :
             
         print("Factorial is : ",fac)
         
-class parent() :
+class parent :
     
     def list(self) :
         

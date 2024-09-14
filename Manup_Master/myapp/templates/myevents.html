@@ -43,7 +43,7 @@
                                                     <h4>{{i.event.event_name}}</h4>
                                                     &nbsp;&nbsp;&nbsp;
                                                     {% if i.payment_status == False %}
-                                                        <a  class="site-btn" href="{% url 'payment' pk=i.pk %}">Proceed for Payment</a>
+                                                        <a  class="site-btn" href="{% url 'payment' pk=i.pk %}">Bookng Event</a>
                                                     {% else %}
                                                         <a class="site-btn" href="" disabled>Already Booked</a>
                                                     {% endif %}

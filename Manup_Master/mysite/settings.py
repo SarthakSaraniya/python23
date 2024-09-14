@@ -1,3 +1,4 @@
+
 """
 Django settings for mysite project.
 
@@ -126,3 +127,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+STRIPE_PUBLIC_KEY='pk_test_51MshH6SJuXwPfjjrrgxJ5tubbOgYAhRrqNcd4RDUSq1peWpIMZrjhIiTncSUWO9u6byeDf4KxdZPkFD4hU55mVOg00aRL5RT8x'
+STRIPE_PRIVATE_KEY='sk_test_51MshH6SJuXwPfjjry2IkUKMu8iyfVbVspwNw3RvLshMUCMRRCiNSeWmf17dCfVe0IFHRwq3zYTOc2NBXFSHKbVMw00rJtyc3CY'
